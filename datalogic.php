@@ -16,15 +16,15 @@ print_r(get());
 
 
 function get() {
-    $db = new dbconnection();
-    $sql= "call getrandommeal()";
+    $db = new dbconnection();   
     
+    $sql= "call getrandommeal()";    
     $stmt = $db->prepare($sql);
-    $stmt ->execute(array());
-   
+    $stmt ->execute(array());   
    
  $result = $stmt->fetch(PDO::FETCH_OBJ);
  $count = $stmt->rowCount();
+ 
  
 if($count == 1){    
     print("sucess");
@@ -32,7 +32,7 @@ if($count == 1){
     print("fail ");
 }
  
- print($result);    
+print_r($result);    
  print("why u empty!?");
  return $result;
 }
