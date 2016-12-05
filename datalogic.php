@@ -6,7 +6,7 @@ $sql= "SELECT * FROM plan_b.meals";
 $sql2= "call plan_b.getrandommeal)";
 
 // sql query
-$result = $conn->myslq_query($sq2);
+$result = $conn->query($sql);
 
 //get();
 
