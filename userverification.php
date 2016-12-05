@@ -5,7 +5,7 @@ include_once 'dbconnection.php';
 try {
 $username = $_POST['username'];
 $password = $_POST['password'];
-$db = new DBConnection();
+$db = new dbconnection();
 $q = "call logon(:username,:password)";
 $stmt = $db->prepare($q);
 $stmt->execute(array(':username' => $username, ':password' => $password));
