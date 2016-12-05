@@ -1,29 +1,24 @@
-<?php include_once './dbconnection.php';
+<?php
 
+include_once 'dbconnection.php';
+
+try {
 $username = $_POST['username'];
 $password = $_POST['password'];
-
-$sql= "SELECT * FROM plan_b.users";
-
-// sql query
-$result = $conn->query($sql);
-
-//$row = mysqli_fetch_assoc($result);
-
-// makes query into associative array
-$rows = [];
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-{
-    $rows[] = $row;
-    
-if($rows[0]['use_username'] == $username && $rows[0]['use_password'] == $password){
-    print("Login succesfull "."Welcome: ".$rows[0]['use_username']);
+$db = new DBConnection();
+$q = "call logon(:username,:password)";
+$stmt = $db->prepare($q);
+$stmt->execute(array(':username' => $username, ':password' => $password));
+$result = $stmt->fetch(PDO::FETCH_OBJ);
+$count = $stmt->rowCount();
+if($count == 1){
+    session_start();
+    $_SESSION["user"] = $result->use_name;
+    print("Login succesfull "."Welcome: ".$result->use_name);
+}else {
+    print("Login fail "." ");
 }
-else{
-   print("Login failed"); 
-}    
-    
+} catch (PDOException $e) {
+echo $e->getMessage();
 }
-
-
-
+?>
