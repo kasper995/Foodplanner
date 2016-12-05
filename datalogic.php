@@ -1,36 +1,40 @@
-<?php include_once './dbconnection.php';
+<?php include_once 'dbconnection.php';
 
 //data selection varialble
 //$sql = "SELECT mea_name FROM plan_b.meals";
-$sql= "SELECT * FROM plan_b.meals";
-$sql2= "call plan_b.getrandommeal)";
+$sql2132= "SELECT * FROM plan_b.meals";
 
+ //$db = new dbconnection();
 // sql query
-$result = $conn->query($sql);
+//$result = $db->query($sql2132);
 
-//get();
+
+print_r(get());
 
 
 // makes query into associative array
-$rows = [];
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-{
-    $rows[] = $row;   
-}
 
-print("<pre>");
-print_r($rows);
-
-print("</pre>");
 
 function get() {
-    $temp = $conn->prepare($ql2);
-   $temp->setFetchMode(PDO::FETCH_OBJ);
-$temp ->execute;
-
- $result = $temp->fetchAll();
+    $db = new dbconnection();
+    $sql= "call getrandommeal()";
+    
+    $stmt = $db->prepare($sql);
+    $stmt ->execute(array());
+   
+   
+ $result = $stmt->fetch(PDO::FETCH_OBJ);
+ $count = $stmt->rowCount();
  
-    return $result;
+if($count == 1){    
+    print("sucess");
+}else {
+    print("fail ");
+}
+ 
+ print($result);    
+ print("why u empty!?");
+ return $result;
 }
 
 
