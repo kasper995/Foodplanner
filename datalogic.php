@@ -18,7 +18,7 @@ print_r(get());
 function get() {
     $db = new dbconnection();   
     
-    $sql= "call getrandommeal()";    
+    $sql= "call getrandommeals()";    
     $stmt = $db->prepare($sql);
     $stmt ->execute(array());   
    
@@ -27,13 +27,12 @@ function get() {
  
  
 if($count == 1){    
-    print("sucess");
+    print("sucess   ");
 }else {
-    print("fail ");
+    print("fail   ");
 }
  
-print_r($result);    
- print("why u empty!?");
+
  return $result;
 }
 
