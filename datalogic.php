@@ -18,7 +18,7 @@ print_r(get());
 function get() {
     $db = new dbconnection();   
     
-    $sql= "call getrandommeals()";    
+    $sql= "call getrandommeal()";    
     $stmt = $db->prepare($sql);
     $stmt ->execute(array());   
    
