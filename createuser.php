@@ -3,25 +3,32 @@
 include_once 'dbconnection.php';
 
 try {
-$Cusername = $_POST['Cusername'];
-$Cpassword = $_POST['Cpassword'];
+// post of all the information from front page
 $Cname = $_POST['Cname'];
+$Cpassword = $_POST['Cpassword'];
+$Cusername = $_POST['Cusername'];
 $Cgroup = $_POST['Cgroup'];
 
+//database connection
 $db = new dbconnection();
-$q = "call createnewuser(username:,:password,:name,:group)";
-$stmt = $db->prepare($q);
+
+//stored procedure is called here
+$storedproc = "call createnewuser(:username,:password,:name,:group)";
+//preparing the statement
+$stmt = $db->prepare($storedproc);
+//setting parameters
+$stmt->bindParam(":username", $Cusername);
+$stmt->bindParam(":password", $Cpassword);
+$stmt->bindParam(":name", $Cname);
+$stmt->bindParam(":group", $Cgroup);
+//executes the statement
 $stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname, ':group' => $Cgroup));
-$result = $stmt->fetch(PDO::FETCH_OBJ);
-$count = $stmt->rowCount();
-if($count == 1){
-    session_start();
-    $_SESSION["user"] = $result->use_name;
-    print("Profile created! "."Welcome: ".$result->use_name);
-}else {
-    print("Profile creation failed "." ");
+
+$haha = array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname, ':group' => $Cgroup);
+
+print_r($haha);
+
 }
-} catch (PDOException $e) {
+catch (PDOException $e) {
 echo $e->getMessage();
 }
-
