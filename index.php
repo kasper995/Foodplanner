@@ -25,10 +25,10 @@
         
         <div class="createusercontain">
             <form method="POST" action="createuser.php">
-                <input class="Cname" name="Cname" type="text" placeholder="name"> </br>
-                <input class="Cusername" name="Cusername" type="text" placeholder="Username"> </br>
-                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password"> </br>
-                <input class="Cgroup" name="Cgroup" type="text" placeholder="User group"> </br>
+                <input class="Cname" name="Cname" type="text" placeholder="name"> 
+                <input class="Cusername" name="Cusername" type="text" placeholder="Username"> 
+                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password"> 
+                <input class="Cgroup" name="Cgroup" type="text" placeholder="User group"> 
                 <button class="createbutton" type="submit">Submit</button>
             </form>
         </div>
