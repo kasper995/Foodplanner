@@ -16,11 +16,7 @@ $db = new dbconnection();
 $storedproc = "call createnewuser(:username,:password,:name,:group)";
 //preparing the statement
 $stmt = $db->prepare($storedproc);
-//setting parameters
-$stmt->bindParam(":username", $Cusername);
-$stmt->bindParam(":password", $Cpassword);
-$stmt->bindParam(":name", $Cname);
-$stmt->bindParam(":group", $Cgroup);
+
 //executes the statement
 $stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname, ':group' => $Cgroup));
 
