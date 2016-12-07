@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
-<<<<<<< HEAD
->>>>>>> f30657c691baa8459260c29e265f285275b20275
-<?php //include_once './dbconnection.php'; ?>
-=======
+<!DOCTYPE html>
+
+
 <?php include_once './dbconnection.php'; ?>
->>>>>>> LogonWork
+
 <html>  
     <head>
         <title>Food Project</title>
@@ -30,7 +21,16 @@ and open the template in the editor.
                 <input class="password" name="password" type="password" placeholder="Password">
                 <button class="loginbtn" type="submit">Login</button>
             </form>
+        </div>
         
+        <div class="createusercontain">
+            <form method="POST" action="createuser.php">
+                <input class="Cname" name="Cname" type="text" placeholder="name"> </br>
+                <input class="Cusername" name="Cusername" type="text" placeholder="Username"> </br>
+                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password"> </br>
+                <input class="Cgroup" name="Cgroup" type="text" placeholder="User group"> </br>
+                <button class="createbutton" type="submit">Submit</button>
+            </form>
         </div>
         
         <div class="underconstruction"></div>
