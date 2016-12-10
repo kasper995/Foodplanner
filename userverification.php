@@ -13,9 +13,7 @@ $stmt->execute(array(':username' => $username, ':password' => $password));
 $result = $stmt->fetch(PDO::FETCH_OBJ);
 $count = $stmt->rowCount();
 if($count == 1){
-    session_start();
-    $_SESSION["user"] = $result->use_name;
-    print("Login succesfull "."Welcome: ".$result->use_name);
+    print("<script>window.location = './datalogic.php';</script>");
 }else {
     print("Login fail "." ");
 }
