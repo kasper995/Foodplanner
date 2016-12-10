@@ -15,9 +15,10 @@
     <body>
         
         <h1 class="header">Food Planing</h1>
-        
+        <div class="LoginStatus"></div>
         <div class="inputcontainer">
-            <form method="POST" action="userverification.php">
+            
+            <form id="login" method="POST" action="userverification.php">
                 <input class="username" name="username" type="text" placeholder="Username"> 
                 <input class="password" name="password" type="password" placeholder="Password">
                 <button class="loginbtn" type="submit">Login</button>
@@ -32,6 +33,26 @@
                 <button class="createbutton" type="submit">Submit</button>
             </form>
         </div>
+        
+        <script>
+        $("button.loginbtn").click( function() {
+ 
+  if( $(".username").val() == "" || $(".password").val() == "" )
+    $("div.LoginStatus").html("Please enter both username and password");
+  else
+    $.post( $("#login").attr("action"),
+	        $("#login :input").serializeArray(),
+			function(data) {
+			  $("div.LoginStatus").html(data);
+			});
+ 
+	$("#login").submit( function() {
+	   return false;	
+	});
+ 
+});
+        </script>
+        
     <script>    
         // this is the id of the form
 $("#createuser").submit(function(e) {
