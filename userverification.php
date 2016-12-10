@@ -15,7 +15,7 @@ $count = $stmt->rowCount();
 if($count == 1){
     print("<script>window.location = './datalogic.php';</script>");
 }else {
-    print("Login fail "." ");
+    print("Login failed "." ");
 }
 } catch (PDOException $e) {
 echo $e->getMessage();
