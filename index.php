@@ -26,6 +26,7 @@
         </div>
         
         <div class="createusercontain">
+            <div class="createuserheader">Create user</div>
             <form id="createuser">
                 <input class="Cname" name="Cname" type="text" placeholder="name"> 
                 <input class="Cusername" name="Cusername" type="text" placeholder="Username"> 

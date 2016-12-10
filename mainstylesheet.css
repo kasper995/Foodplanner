@@ -65,10 +65,14 @@ body{
     margin-left: 10px
 }
 .createbutton{
-    margin-top: 35px;
+    margin-top: 25px;
     margin-left: 10px
 }
 
 .LoginStatus{
     text-align: center;
+}
+
+.createuserheader{
+    margin: 10px;
 }
