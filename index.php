@@ -1,24 +1,16 @@
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
-<<<<<<< HEAD
->>>>>>> f30657c691baa8459260c29e265f285275b20275
-<?php //include_once './dbconnection.php'; ?>
-=======
+<!DOCTYPE html>
+
+
 <?php include_once './dbconnection.php'; ?>
->>>>>>> LogonWork
+
 <html>  
     <head>
         <title>Food Project</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="mainstylesheet.css">
+        <script src="jquery-3.1.1.min.js"></script>
     </head>
     <body>
         
@@ -30,9 +22,34 @@ and open the template in the editor.
                 <input class="password" name="password" type="password" placeholder="Password">
                 <button class="loginbtn" type="submit">Login</button>
             </form>
-        
         </div>
         
-        <div class="underconstruction"></div>
+        <div class="createusercontain">
+            <form id="createuser">
+                <input class="Cname" name="Cname" type="text" placeholder="name"> 
+                <input class="Cusername" name="Cusername" type="text" placeholder="Username"> 
+                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password"> 
+                <button class="createbutton" type="submit">Submit</button>
+            </form>
+        </div>
+    <script>    
+        // this is the id of the form
+$("#createuser").submit(function(e) {
+
+    var url = "./createuser.php"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#createuser").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert("User created!"); // show response from the php script.
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+</script>
     </body>
 </html>
