@@ -19,8 +19,8 @@
         <div class="inputcontainer">
             
             <form id="login" method="POST" action="userverification.php">
-                <input class="username" name="username" type="text" placeholder="Username"> 
-                <input class="password" name="password" type="password" placeholder="Password">
+                <input class="username" name="username" type="text" placeholder="Username" autocomplete="off"> 
+                <input class="password" name="password" type="password" placeholder="Password" autocomplete="off">
                 <button class="loginbtn" type="submit">Login</button>
             </form>
         </div>
@@ -28,9 +28,9 @@
         <div class="createusercontain">
             <div class="createuserheader">Create user</div>
             <form id="createuser">
-                <input class="Cname" name="Cname" type="text" placeholder="name"> 
-                <input class="Cusername" name="Cusername" type="text" placeholder="Username"> 
-                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password"> 
+                <input class="Cname" name="Cname" type="text" placeholder="name" autocomplete="off"> 
+                <input class="Cusername" name="Cusername" type="text" placeholder="Username" autocomplete="off"> 
+                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password" autocomplete="off"> 
                 <button class="createbutton" type="submit">Submit</button>
             </form>
         </div>
