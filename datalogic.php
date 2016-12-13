@@ -1,36 +1,55 @@
-<?php include_once './dbconnection.php';
-
-//data selection varialble
-//$sql = "SELECT mea_name FROM plan_b.meals";
-$sql= "SELECT * FROM plan_b.meals";
-$sql2= "call plan_b.getrandommeal)";
-
-// sql query
-$result = $conn->query($sql);
-
-//get();
+<?php include_once 'dbconnection.php';
 
 
-// makes query into associative array
-$rows = [];
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-{
-    $rows[] = $row;   
-}
-
-print("<pre>");
-print_r($rows);
-
-print("</pre>");
 
 function get() {
-    $temp = $conn->prepare($ql2);
-   $temp->setFetchMode(PDO::FETCH_OBJ);
-$temp ->execute;
+    $db = new dbconnection();
+    $sql= "call getrandommeal()";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
 
- $result = $temp->fetchAll();
- 
-    return $result;
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    $count = $stmt->rowCount();
+
+    print("<div class='meals'>");
+    print("<h1 class='mealHeader'>");
+    print_r($result->mea_name);
+    print("</h1>");
+    print("<br>");
+    print("<p class='mealTxt'>you will need:</p> <br>");
+    print_r(geting($result->mea_number)); 
+    print("</div>");
+    
+     
+    
+}
+
+
+
+for ($x = 0; $x <= 2; $x++) {
+    get(); print("<br>");
+} 
+    
+function geting($meanumber)
+{
+    $db = new dbconnection();
+    $sql= "call getingredienttomeal($meanumber)";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $ingredient = $stmt->fetch(PDO::FETCH_OBJ);
+    $count = $stmt->rowCount();
+    
+     foreach ($stmt as $key => $value) {
+        print("<p class='mealTxt'>"); 
+        print_r($value['itm_amount']);
+        print(" - ");
+        print_r($value['ing_name']); 
+        print(" Til ");
+        print_r($value['itm_price']);
+        print(" Dkk <br>");
+        print("</p>");
+    }
+   
 }
 
 
