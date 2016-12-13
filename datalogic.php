@@ -32,10 +32,14 @@ function geting($meanumber)
     $stmt->execute();
     $ingredient = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
-    
+    print_r($ingredient);
      foreach ($stmt as $key => $value) {
         print("<br>");
-        print_r($value['ing_name']);
+        print_r($value['ing_name']); 
+        print_r(" amount of ingredients needed ");
+        print_r($value['itm_amount']);
+        print_r(" and the price is ");
+        print_r($value['itm_price']);
         print("<br>");
     }
 
