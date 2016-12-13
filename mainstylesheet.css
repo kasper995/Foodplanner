@@ -1,3 +1,15 @@
+@font-face{
+    font-family: "SohoStd-Bold";
+    src: url('Fonts/SohoStd-Bold.otf'),
+    url('SohoStd-Bold.eot'); /* IE */
+}
+
+@font-face{
+    font-family: "SohoStd-Regular";
+    src: url('Fonts/SohoStd-Regular.otf'),
+    url('SohoStd-Regular.eot'); /* IE */
+}
+
 body{
     background-image: url("img/frontpage.jpg");
 }
@@ -76,3 +88,35 @@ body{
 .createuserheader{
     margin: 10px;
 }
+
+.foodplanHeader{
+    font-family: "SohoStd-Regular";
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+.mealHeader{
+    font-family: "SohoStd-Bold";
+}
+
+.meals{
+    background-color: #065868;
+    
+    float: none;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+}
+
+.mealTxt{
+    font-family: "SohoStd-Regular";
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
