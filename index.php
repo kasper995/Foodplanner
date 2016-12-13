@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -7,12 +6,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<<<<<<< HEAD
->>>>>>> f30657c691baa8459260c29e265f285275b20275
-<?php //include_once './dbconnection.php'; ?>
-=======
 <?php include_once './dbconnection.php'; ?>
->>>>>>> LogonWork
+
 <html>  
     <head>
         <title>Food Project</title>
