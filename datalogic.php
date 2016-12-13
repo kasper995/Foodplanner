@@ -2,7 +2,7 @@
 
 
 
-function getFirstMeal() {
+function get() {
     $db = new dbconnection();
     $sql= "call getrandommeal()";
     $stmt = $db->prepare($sql);
@@ -14,31 +14,14 @@ function getFirstMeal() {
  
 }
 
-function getSecondMeal() {
-    $db = new dbconnection();
-    $sql= "call getrandommeal()";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_OBJ);
-    $count = $stmt->rowCount();
-    print_r($result->mea_name);
- 
-}
 
-function getThirdMeal() {
-    $db = new dbconnection();
-    $sql= "call getrandommeal()";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
+for ($x = 0; $x <= 2; $x++) {
+    get(); print("<br>");
+} 
+    
 
-    $result = $stmt->fetch(PDO::FETCH_OBJ);
-    $count = $stmt->rowCount();
-    print_r($result->mea_name);
- 
-}
-getFirstMeal(); print("<br>");
-getSecondMeal(); print("<br>");
-getThirdMeal(); print("<br>");
+
+
 
 
