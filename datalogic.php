@@ -10,9 +10,12 @@ function get() {
 
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
-    print_r($result->mea_name);
+    print_r($result->mea_name); print("<br>");
+    
     
     print_r(geting($result->mea_number));
+
+    
 }
 
 
@@ -27,13 +30,16 @@ function geting($meanumber)
     $sql= "call getingredienttomeal($meanumber)";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-
     $ingredient = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
-   
-    print_r($count);
-   
-    return $ingredient;
+    
+     foreach ($stmt as $key => $value) {
+        print("<br>");
+        print_r($value['ing_name']);
+        print("<br>");
+    }
+
+//    return $ingredient;
     
 }
 
