@@ -13,7 +13,7 @@ $stmt->execute(array(':username' => $username, ':password' => $password));
 $result = $stmt->fetch(PDO::FETCH_OBJ);
 $count = $stmt->rowCount();
 if($count == 1){
-    print("<script>window.location = './foodplan.php';</script>");
+    print("<script>window.location = './foodplan';</script>");
 }else {
     print("Login failed "." ");
 }
