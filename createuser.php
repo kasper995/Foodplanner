@@ -5,12 +5,23 @@ class CreateUser{
 
     function getuserinfo()
     {
+       
+        
         $Cname = $_POST['Cname'];
     $Cpassword = $_POST['Cpassword'];
     $Cusername = $_POST['Cusername'];
-    
+        if ($Cname == "" && $Cpassword == ""&& $Cusername== ""){
+            print_r("User not created!");
+        }
+        else if($Cpassword != int){
+            print_r("password can only contain numbers");
+        }
+        
+        else{
     $this->GetUser($Cname, $Cpassword, $Cusername);
-    }
+        }
+    
+        }
     
            
     
@@ -49,19 +60,16 @@ class CreateUser{
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
    
-$name =  $result->use_username; 
+    $name =  $result->use_username; 
     $pass =  $result->use_password;
     $user = $name.$pass;
     return $user;
-    print_r($user);
-    
-    
-   
+    print_r($user);   
     }
 }
 
 $getdata = new CreateUser();
 
 $getdata->getuserinfo();
-$getdata->validateUser("test", "1111", "test");
+
 

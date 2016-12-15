@@ -20,12 +20,12 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
 
       public function testvalidate() {
         // Remove the following lines when you implement this test.
-        $name = "test";
-        $pass = "1111";
+        $name = "thomas";
+        $pass = "1234";
         $cname = "toto";
        
         //$func = $this->object->GetUser($name, $pass, $cname);
-        $this->assertEquals("test1111",$this->object->validateUser($name, $pass, $cname));        
+        $this->assertEquals("thomas1234",$this->object->validateUser($name, $pass, $cname));        
     }
     
     public function testNormalUser() {

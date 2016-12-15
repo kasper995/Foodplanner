@@ -22,13 +22,15 @@
                 <button class="loginbtn" type="submit">Login</button>
             </form>
         </div>
-        
+        <div class="createstatus">
+            
+        </div>
         <div class="createusercontain">
             <div class="createuserheader">Create user</div>
             <form id="createuser">
                 <input class="Cname" name="Cname" type="text" placeholder="name" autocomplete="off"> 
                 <input class="Cusername" name="Cusername" type="text" placeholder="Username" autocomplete="off"> 
-                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password" autocomplete="off"> 
+                <input class="Cpassword" name="Cpassword" type="password" placeholder="Password" autocomplete="off" > 
                 <button class="createbutton" type="submit">Submit</button>
             </form>
         </div>
@@ -64,7 +66,7 @@ $("#createuser").submit(function(e) {
            data: $("#createuser").serialize(), // serializes the form's elements.
            success: function(data)
            {
-               alert("User created!"); // show response from the php script.
+               $(div.createstatus).html(data); // show response from the php script.
            }           
          });
 
