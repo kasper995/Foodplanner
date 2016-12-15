@@ -63,5 +63,14 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
         //$func = $this->object->GetUser($name, $pass, $cname);
         $this->assertFalse($this->object->GetUser($name, $pass, $cname));        
     }
+    public function testGetUser4() {
+        // Remove the following lines when you implement this test.
+        $name = "";
+        $pass = "";
+        $cname = "";
+       
+        //$func = $this->object->GetUser($name, $pass, $cname);
+        $this->assertFalse($this->object->GetUser($name, $pass, $cname));        
+    }
 
 }
