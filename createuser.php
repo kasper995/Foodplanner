@@ -2,14 +2,6 @@
 
 
 class CreateUser{
-    
-    private $storedprocedure;
-    
-    function Construct(){
-     //stored procedure is called here   
-     $this->storedprocedure = "call createnewuser(:username,:password,:name)";
-        
-    }
 
     function GetDatabase(){
         
@@ -21,6 +13,8 @@ class CreateUser{
 
     //database connection
     $db = new dbconnection();
+    
+    $storedproc = "call createnewuser(:username,:password,:name)";
 
     //preparing the statement
     $stmt = $db->prepare($storedproc);
