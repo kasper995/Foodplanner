@@ -31,8 +31,17 @@ class CreateUser{
         
         try {
              
+         if ($name == "" && $pass == "" && $cname == ""){
+            print '"User not created!"';
+            return("User not created!");
+        }  
+        else if (!is_numeric($pass)){
+            print 'Password can only contain numbers';
+            return ('Password can only contain numbers');
+        }
         
-        
+        else{
+     
    
     
     // post of all the information from front page
@@ -49,7 +58,9 @@ class CreateUser{
     //executes the statement
     $stmt->execute(array(':username' => $name, ':password' => $pass, ':name' => $cname));
 
-    
+    return "success";
+        }
+        
    }
   
         catch (PDOException $e) {

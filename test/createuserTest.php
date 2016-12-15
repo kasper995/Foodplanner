@@ -16,7 +16,16 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
    
     protected function tearDown() {
         
-    }    
+    }  
+      public function testNormalUser() {
+        // Remove the following lines when you implement this test.
+        $name = "thomas";
+        $pass = "1234";
+        $cname = "toto";
+       
+        //$func = $this->object->GetUser($name, $pass, $cname);
+         $this->assertEquals("success",$this->object->GetUser($name, $pass, $cname));      
+    }
 
       public function testvalidate() {
         // Remove the following lines when you implement this test.
@@ -28,15 +37,7 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("thomas1234",$this->object->validateUser($name, $pass, $cname));        
     }
     
-    public function testNormalUser() {
-        // Remove the following lines when you implement this test.
-        $name = "thomas";
-        $pass = "1234";
-        $cname = "toto";
-       
-        //$func = $this->object->GetUser($name, $pass, $cname);
-         $this->assertEquals("success",$this->object->GetUser($name, $pass, $cname));      
-    }
+  
   
     public function testFullStringUser() {
         // Remove the following lines when you implement this test.
