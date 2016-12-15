@@ -1,30 +1,44 @@
-<?php
-
-include_once 'dbconnection.php';
-
-try {
-// post of all the information from front page
-$Cname = $_POST['Cname'];
-$Cpassword = $_POST['Cpassword'];
-$Cusername = $_POST['Cusername'];
+<?php include_once 'dbconnection.php';
 
 
-//database connection
-$db = new dbconnection();
+class CreateUser{
+    
+    private $storedprocedure;
+    
+    function Construct(){
+     //stored procedure is called here   
+     $this->storedprocedure = "call createnewuser(:username,:password,:name)";
+        
+    }
 
-//stored procedure is called here
-$storedproc = "call createnewuser(:username,:password,:name)";
-//preparing the statement
-$stmt = $db->prepare($storedproc);
+    function GetDatabase(){
+        
+        try {
+    // post of all the information from front page
+    $Cname = $_POST['Cname'];
+    $Cpassword = $_POST['Cpassword'];
+    $Cusername = $_POST['Cusername'];
 
-//executes the statement
-$stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname));
+    //database connection
+    $db = new dbconnection();
 
-$haha = array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname);
+    //preparing the statement
+    $stmt = $db->prepare($storedproc);
 
-print_r($haha);
+    //executes the statement
+    $stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname));
+
+    }
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        } 
+        
+        
+    }
+    
+    
 
 }
-catch (PDOException $e) {
-echo $e->getMessage();
-}
+
+GetDatabase();
+
