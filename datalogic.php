@@ -4,8 +4,9 @@ class logic{
 
 function getthreemeals(){
     for ($x = 0; $x <= 2; $x++) {
-    getmeal(); print("<br>");
-} 
+    $this->getmeal(); print("<br>"); 
+}
+
 }
     
 function getmeal() {
@@ -23,7 +24,7 @@ function getmeal() {
     print("</h1>");
     print("<br>");
     print("<p class='mealTxt'>you will need:</p> <br>");
-    print_r(getingredients($result->mea_number)); 
+    print_r($this->getingredients($result->mea_number)); 
     print("</div>");       
 }
     
@@ -47,7 +48,12 @@ function getingredients($meanumber)
         print("</p>");
     }
    
-}
+    
+    
 }
 
+}
+$getdata = new logic();
+
+$getdata->getthreemeals();
 

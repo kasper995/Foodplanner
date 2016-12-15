@@ -1,4 +1,6 @@
-<?php include_once './dbconnection.php'; ?>
+<?php 
+include_once './dbconnection.php';
+?>
 
 <html>  
     <head>
