@@ -17,7 +17,7 @@ function getmeal() {
 
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
-
+    
     print("<div class='meals'>");
     print("<h1 class='mealHeader'>");
     print_r($result->mea_name);
@@ -26,8 +26,9 @@ function getmeal() {
     print("<p class='mealTxt'>you will need:</p> <br>");
     print_r($this->getingredients($result->mea_number)); 
     print("</div>");       
+    return true;  
+   
 }
-    
 function getingredients($meanumber)
 {
     $db = new dbconnection();
@@ -36,8 +37,8 @@ function getingredients($meanumber)
     $stmt->execute();
     $ingredient = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
-    
-     foreach ($stmt as $key => $value) {
+    if ($count>1) {
+        foreach ($stmt as $key => $value) {
         print("<p class='mealTxt'>"); 
         print_r($value['itm_amount']);
         print(" - ");
@@ -46,7 +47,17 @@ function getingredients($meanumber)
         print_r($value['itm_price']);
         print(" Dkk <br>");
         print("</p>");
+        //$string = "<p class='mealTxt'>" +$value['itm_amount'] + " - " +$value['ing_name'] + " Til " + $value['itm_price'] + " Dkk <br>" + "</p>";
+        
     }
+    return true;
+      //return $string;
+     }
+ else {
+         print_r("kunne ikke hente ingredienser");
+        return false;
+    }
+   
    
     
     
