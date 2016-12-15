@@ -29,7 +29,7 @@ function getmeal() {
     return true;  
      }
  else {
-         print_r("kunne ikke hente ingredienser");
+         print("kunne ikke hente ingredienser");
         return false;
     }
    
@@ -53,15 +53,15 @@ function getingredients($meanumber)
         print_r($value['itm_price']);
         print(" Dkk <br>");
         print("</p>");
-        $string = "<p class='mealTxt'>".$value['itm_amount']." - ".$value['ing_name']." Til ".$value['itm_price']." Dkk <br>"."</p>";
+
         
     }
     
       //return $string;
-    return true;
+        return true;
      }
  else {
-         print_r("kunne ikke hente ingredienser");
+         print("kunne ikke hente ingredienser");
         return false;
     }
    
