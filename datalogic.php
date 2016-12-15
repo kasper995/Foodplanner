@@ -50,8 +50,9 @@ function getingredients($meanumber)
         //$string = "<p class='mealTxt'>" +$value['itm_amount'] + " - " +$value['ing_name'] + " Til " + $value['itm_price'] + " Dkk <br>" + "</p>";
         //return $string;
     }
-    return true;
+    
       //return $string;
+    return true;
      }
  else {
          print_r("kunne ikke hente ingredienser");
