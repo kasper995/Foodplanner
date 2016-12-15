@@ -26,21 +26,7 @@ class logicTest extends PHPUnit_Framework_TestCase {
         
     }
 
-    /**
-     * @covers logic::getthreemeals
-     * @todo   Implement testGetthreemeals().
-     */
-    public function testGetthreemeals() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers logic::getmeal
-     * @todo   Implement testGetmeal().
-     */
+    
     public function testGetmeal() {
         // Remove the following lines when you implement this test.
          

@@ -65,7 +65,7 @@ $("#createuser").submit(function(e) {
            success: function(data)
            {
                alert("User created!"); // show response from the php script.
-           }
+           }           
          });
 
     e.preventDefault(); // avoid to execute the actual submit of the form.

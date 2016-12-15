@@ -48,7 +48,7 @@ function getingredients($meanumber)
         print(" Dkk <br>");
         print("</p>");
         //$string = "<p class='mealTxt'>" +$value['itm_amount'] + " - " +$value['ing_name'] + " Til " + $value['itm_price'] + " Dkk <br>" + "</p>";
-        
+        //return $string;
     }
     return true;
       //return $string;
