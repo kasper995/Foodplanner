@@ -3,7 +3,7 @@
 
 class CreateUser{
 
-    function GetDatabase(){
+    function GetUser(){
         
         try {
     // post of all the information from front page
@@ -34,5 +34,7 @@ class CreateUser{
 
 }
 
-GetDatabase();
+$getdata = new CreateUser();
+
+$getdata->GetUser();
 
