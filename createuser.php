@@ -3,13 +3,22 @@
 
 class CreateUser{
 
-    function GetUser(){
+    function getuserinfo()
+    {
+        $Cname = $_POST['Cname'];
+    $Cpassword = $_POST['Cpassword'];
+    $Cusername = $_POST['Cusername'];
+    
+    $this->GetUser($Cname, $Cpassword, $Cusername);
+    }
+    
+           
+    
+    function GetUser($name,$pass,$cname){
         
         try {
     // post of all the information from front page
-    $Cname = $_POST['Cname'];
-    $Cpassword = $_POST['Cpassword'];
-    $Cusername = $_POST['Cusername'];
+    
 
     //database connection
     $db = new dbconnection();
@@ -20,21 +29,19 @@ class CreateUser{
     $stmt = $db->prepare($storedproc);
 
     //executes the statement
-    $stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname));
+    $stmt->execute(array(':username' => $name, ':password' => $pass, ':name' => $cname));
 
+    return true;
     }
+  
         catch (PDOException $e) {
+        return False;
         echo $e->getMessage();
-        } 
-        
-        
+        }        
     }
-    
-    
-
 }
 
 $getdata = new CreateUser();
 
-$getdata->GetUser();
+$getdata->getuserinfo();
 

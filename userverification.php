@@ -16,11 +16,14 @@ class UserVerification{
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $stmt->rowCount();
     if($count == 1){
-        print("<script>window.location = './foodplan';</script>");
+    print("<script>window.location = './foodplan';</script>");
+    return true;
     }else {
     print("Login failed "." ");
+    return false;
     }
-    } catch (PDOException $e) {
+    } 
+    catch (PDOException $e) {
     echo $e->getMessage();
 }
         
