@@ -39,9 +39,29 @@ class CreateUser{
         echo $e->getMessage();
         }        
     }
+    function validateUser($name,$pass,$cname)
+    {
+    $db = new dbconnection();
+    $q = "call logon(:username,:password)";
+    $stmt = $db->prepare($q);
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(array(':username' => $name, ':password' => $pass));
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    $count = $stmt->rowCount();
+   
+$name =  $result->use_username; 
+    $pass =  $result->use_password;
+    $user = $name.$pass;
+    return $user;
+    print_r($user);
+    
+    
+   
+    }
 }
 
 $getdata = new CreateUser();
 
 $getdata->getuserinfo();
+$getdata->validateUser("test", "1111", "test");
 
