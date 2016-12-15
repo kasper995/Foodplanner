@@ -8,26 +8,33 @@ class CreateUser{
        
         
         $Cname = $_POST['Cname'];
-    $Cpassword = $_POST['Cpassword'];
-    $Cusername = $_POST['Cusername'];
+        $Cpassword = $_POST['Cpassword'];
+        $Cusername = $_POST['Cusername'];
+        
         if ($Cname == "" && $Cpassword == ""&& $Cusername== ""){
-            print_r("User not created!");
-        }
-        else if($Cpassword != int){
-            print_r("password can only contain numbers");
+            print '"User not created!"';
+            return("User not created!");
+        }  
+        else if (!is_numeric($Cpassword)){
+            print 'Password can only contain numbers';
+            return ('Password can only contain numbers');
         }
         
         else{
-    $this->GetUser($Cname, $Cpassword, $Cusername);
+      $this->getUser($Cname, $Cpassword, $Cusername);
         }
-    
         }
     
            
     
-    function GetUser($name,$pass,$cname){
+    function getUser($name,$pass,$cname){
         
         try {
+             
+        
+        
+   
+    
     // post of all the information from front page
     
 
@@ -42,14 +49,21 @@ class CreateUser{
     //executes the statement
     $stmt->execute(array(':username' => $name, ':password' => $pass, ':name' => $cname));
 
-    return true;
-    }
+    
+   }
   
         catch (PDOException $e) {
-        return False;
+        
         echo $e->getMessage();
-        }        
+        }
+      
     }
+    
+    
+    
+    
+    
+    
     function validateUser($name,$pass,$cname)
     {
     $db = new dbconnection();

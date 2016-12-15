@@ -119,4 +119,10 @@ body{
     margin-bottom: 0;
 }
 
+.createstatus{
+    position: fixed;
+    bottom: 211px;
+    background-color: white;
+}
+
 

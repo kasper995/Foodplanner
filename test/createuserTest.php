@@ -35,17 +35,9 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
         $cname = "toto";
        
         //$func = $this->object->GetUser($name, $pass, $cname);
-        $this->assertTrue($this->object->GetUser($name, $pass, $cname));        
+         $this->assertEquals("success",$this->object->GetUser($name, $pass, $cname));      
     }
-    public function testFullIntUser() {
-        // Remove the following lines when you implement this test.
-        $name = "123";
-        $pass = "123";
-        $cname = "123";
-       
-        //$func = $this->object->GetUser($name, $pass, $cname);
-        $this->assertFalse($this->object->GetUser($name, $pass, $cname));        
-    }
+  
     public function testFullStringUser() {
         // Remove the following lines when you implement this test.
         $name = "tete";
@@ -53,7 +45,7 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
         $cname = "tete";
        
         //$func = $this->object->GetUser($name, $pass, $cname);
-        $this->assertFalse($this->object->GetUser($name, $pass, $cname));        
+        $this->assertEquals("Password can only contain numbers",$this->object->GetUser($name, $pass, $cname));        
     }
     public function testEmptyUser() {
         // Remove the following lines when you implement this test.
@@ -62,7 +54,7 @@ class CreateUserTest extends PHPUnit_Framework_TestCase {
         $cname = "";
        
         //$func = $this->object->GetUser($name, $pass, $cname);
-        $this->assertFalse($this->object->GetUser($name, $pass, $cname));        
+        $this->assertEquals("User not created!",$this->object->GetUser($name, $pass, $cname));        
 
     }
 
