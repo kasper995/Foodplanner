@@ -14,19 +14,19 @@ class CreateUser{
     function GetDatabase(){
         
         try {
-// post of all the information from front page
-$Cname = $_POST['Cname'];
-$Cpassword = $_POST['Cpassword'];
-$Cusername = $_POST['Cusername'];
+    // post of all the information from front page
+    $Cname = $_POST['Cname'];
+    $Cpassword = $_POST['Cpassword'];
+    $Cusername = $_POST['Cusername'];
 
-//database connection
-$db = new dbconnection();
+    //database connection
+    $db = new dbconnection();
 
-//preparing the statement
-$stmt = $db->prepare($storedproc);
+    //preparing the statement
+    $stmt = $db->prepare($storedproc);
 
-//executes the statement
-$stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname));
+    //executes the statement
+    $stmt->execute(array(':username' => $Cusername, ':password' => $Cpassword, ':name' => $Cname));
 
     }
         catch (PDOException $e) {
