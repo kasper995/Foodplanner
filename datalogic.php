@@ -1,8 +1,14 @@
 <?php include_once 'dbconnection.php';
 
+class logic{
 
-
-function get() {
+function getthreemeals(){
+    for ($x = 0; $x <= 2; $x++) {
+    getmeal(); print("<br>");
+} 
+}
+    
+function getmeal() {
     $db = new dbconnection();
     $sql= "call getrandommeal()";
     $stmt = $db->prepare($sql);
@@ -17,20 +23,11 @@ function get() {
     print("</h1>");
     print("<br>");
     print("<p class='mealTxt'>you will need:</p> <br>");
-    print_r(geting($result->mea_number)); 
-    print("</div>");
-    
-     
-    
+    print_r(getingredients($result->mea_number)); 
+    print("</div>");       
 }
-
-
-
-for ($x = 0; $x <= 2; $x++) {
-    get(); print("<br>");
-} 
     
-function geting($meanumber)
+function getingredients($meanumber)
 {
     $db = new dbconnection();
     $sql= "call getingredienttomeal($meanumber)";
@@ -51,7 +48,6 @@ function geting($meanumber)
     }
    
 }
-
-
+}
 
 
