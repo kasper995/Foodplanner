@@ -17,8 +17,12 @@ include_once './dbconnection.php';
             <button class="mealsBtn">Get Meals</button>
         </form>
         
-        <div class="aquiredMeals"></div>
+        <form id="mealsToPdf" onclick="window.print()">
+            <button class="pdfBtn">Save meals</button>
+        </form>
         
+        <div class="aquiredMeals"></div>
+
         
         <script>
         $("button.mealsBtn").click( function() {
@@ -35,6 +39,10 @@ include_once './dbconnection.php';
  
 });
         </script>
+        
+        
+
+
     </body>
 </html>
 
